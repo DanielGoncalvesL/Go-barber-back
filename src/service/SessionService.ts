@@ -6,6 +6,8 @@ import User from '../models/User';
 
 import {sign, verify} from 'jsonwebtoken';
 
+import authConfig from '../config/auth';
+
 interface Request{
     email: string,
     password: string,
@@ -29,9 +31,11 @@ class SessionService{
             throw new Error('Incorrect email/password combination');
         }
 
-        const token = sign({}, '72603804c59a47b448094f427c489616',{
+        const { secret, expiresIn } = authConfig.jwt; 
+
+        const token = sign({}, secret,{
             subject: user.id,
-            expiresIn: '1d',
+            expiresIn,
         });
 
         return {
