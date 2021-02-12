@@ -25,9 +25,8 @@ export default function ensureAuthenticated(request: Request, response: Response
         const { sub } = decode as TokenPayLoad;
 
         request.user = {
-            id: sub,
-            
-        }
+            id: sub,    
+        };
         return next();
     }catch(err){
         throw new Error('Invalid JWT token');
