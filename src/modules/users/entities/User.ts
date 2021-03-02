@@ -1,14 +1,13 @@
 import {
-    Entity,
-    Column,
-    PrimaryGeneratedColumn,
-    CreateDateColumn,
-    UpdateDateColumn
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 
 @Entity('users')
 class User {
-
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
@@ -20,7 +19,7 @@ class User {
 
     @Column()
     password: string;
-    
+
     @Column()
     avatar: string;
 
@@ -29,7 +28,6 @@ class User {
 
     @UpdateDateColumn()
     updated_at: Date;
-
 }
 
 export default User;
