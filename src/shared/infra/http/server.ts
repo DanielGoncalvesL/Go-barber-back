@@ -4,7 +4,7 @@ import cors from 'cors';
 import routes from './shared/routes';
 import uploadConfig from './config/upload';
 
-import './shared/database';
+import './shared/infra/database';
 
 import AppError from './shared/errors/AppError';
 
