@@ -3,7 +3,7 @@ import fs from 'fs';
 import User from '@modules/users/infra/typeorm/entities/User';
 import UploadConfig from '@config/upload';
 import AppError from '@shared/errors/AppError';
-import IUsersRepositories from '@modules/users/repositories/IUsersRepositories';
+import IUsersRepositories from '@modules/users/repositories/IUsersRepository';
 import { injectable, inject } from 'tsyringe';
 
 interface IRequest{

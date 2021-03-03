@@ -1,7 +1,7 @@
 import { hash } from 'bcryptjs';
 import User from '@modules/users/infra/typeorm/entities/User';
 import AppError from '@shared/errors/AppError';
-import IUsersRepositories from '@modules/users/repositories/IUsersRepositories';
+import IUsersRepositories from '@modules/users/repositories/IUsersRepository';
 import { injectable, inject } from 'tsyringe';
 
 interface IRequest{
