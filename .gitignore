@@ -2,3 +2,4 @@
 /.vscode
 /temp/*
 !/temp/.gitkeep
+/coverage/*
