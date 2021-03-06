@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import express, { NextFunction, Request, Response } from 'express';
+import express, { Request, Response } from 'express';
 import 'express-async-errors';
 import cors from 'cors';
 import routes from '@shared/infra/http/routes';
@@ -16,11 +16,11 @@ app.use(cors());
 
 app.use(express.json());
 
-app.use('/files', express.static(uploadConfig.directory));
+app.use('/files', express.static(uploadConfig.uploadsFolder));
 
 app.use(routes);
 
-app.use((err: Error, request: Request, response: Response, next: NextFunction) => {
+app.use((err: Error, request: Request, response: Response) => {
   if (err instanceof AppError) {
     return response.status(err.statusCode).json({
       status: 'error',
