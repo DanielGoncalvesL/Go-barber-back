@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import express, { Request, Response } from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import 'express-async-errors';
 import cors from 'cors';
 import routes from '@shared/infra/http/routes';
@@ -20,7 +20,7 @@ app.use('/files', express.static(uploadConfig.uploadsFolder));
 
 app.use(routes);
 
-app.use((err: Error, request: Request, response: Response) => {
+app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
   if (err instanceof AppError) {
     return response
       .status(err.statusCode)
